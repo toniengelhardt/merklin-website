@@ -1,42 +1,26 @@
-# Nuxt 3 Minimal Starter
+# M Ξ R K L 🧙🏽‍♂️ N website
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+__App:__ [app.merklin.xyz](https://app.merklin.xyz) ([repo](https://github.com/toniengelhardt/merklin))
+
+This is a basic landing page for the M Ξ R K L 🧙🏽‍♂️ N project.
+
+## Stack
+
+[Vue](https://vuejs.org), [Nuxt](https://nuxt.com), [Typescript](https://www.typescriptlang.org), [Vite](https://vitejs.dev), [Vitest](https://vitest.dev), [UnoCSS](https://uno.antfu.me).
 
 ## Setup
 
-Make sure to install the dependencies:
+Clone the repo, install the dependencies with pnpm, and you're ready to go.
+
+Dev server launches by default on `http://localhost:3000`, or `3051` if you use the example environment.
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
 pnpm install
+pnpm dev
 ```
 
-## Development Server
+---
 
-Start the development server on http://localhost:3000
+Development insights are available on [RepoTracker](https://repo-tracker.com/r/gh/toniengelhardt/merklin-website).
 
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Here's a [list of web3 projects](https://github.com/toniengelhardt/web3-vue-and-nuxt-projects) that already use Vue in their stack.
