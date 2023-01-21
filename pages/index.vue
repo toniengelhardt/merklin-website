@@ -1,11 +1,17 @@
 <script setup lang="ts">
 useHead({
   title: 'Merklin – Open-source Ethereum wallet explorer',
-  meta: [{
-    hid: 'description',
-    name: 'description',
-    content: 'An open-source web-only EVM explorer made with Vue, Nuxt, and Ethers. Visualize wallet metrics like transaction frequency and gas burn for any Ethereum address.',
-  }],
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'An open-source web-only EVM explorer made with Vue, Nuxt, and Ethers. Visualize wallet metrics like transaction frequency and gas burn for any Ethereum address.',
+    }, {
+      hid: 'keywords',
+      name: 'keywords',
+      content: 'open-source, web3, Ethereum, EVM, wallet explorer',
+    },
+  ],
 })
 
 const config = useRuntimeConfig()
@@ -298,6 +304,7 @@ const colorMode = useColorMode()
               title="Learn more about Progressive Web Apps"
               target="_blank"
               link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'PWA' } })"
             >
               Progressive Web App (PWA)
             </NuxtLink>. It works both on
@@ -317,6 +324,7 @@ const colorMode = useColorMode()
               title="Learn more about web3 on Wikipedia"
               target="_blank"
               link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'web3' } })"
             >
               web3
             </NuxtLink>
@@ -328,6 +336,7 @@ const colorMode = useColorMode()
               title="Let's build a Native(-like) Web App (NWA) on Medium"
               target="_blank"
               link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'NWA post' } })"
             >
               NWA
             </NuxtLink>)
@@ -340,6 +349,91 @@ const colorMode = useColorMode()
           </p>
           <p class="answer">
             Yes.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="question">
+            Why Vue/Nuxt and not React/Next?
+          </p>
+          <p class="answer">
+            So far the web3 dev space has been dominated almost exlusively by
+            React and its ecosystem. This project is an attempt to change that
+            and add Vue to the web3 map as well.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="question">
+            Which web3 libraries, RPCs and APIs are used?
+          </p>
+          <p class="answer">
+            As of now, the app relies mostly on
+            <NuxtLink
+              to="https://ethers.io"
+              title="Ethers.js documentation"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'ethers.js' } })"
+            >
+              ethers.js
+            </NuxtLink>,
+            and RPCs/APIs from
+            <NuxtLink
+              to="https://chain.link"
+              title="Decentralized oracle networks"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'Chainlink' } })"
+            >
+              Chainlink
+            </NuxtLink>,
+            <NuxtLink
+              to="https://etherscan.io"
+              title="Etherscan block explorer"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'Etherscan' } })"
+            >
+              Etherscan
+            </NuxtLink>,
+            <NuxtLink
+              to="https://www.alchemy.com"
+              title="Alchemy web3 development platform"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'Alchemy' } })"
+            >
+              Alchemy
+            </NuxtLink>, and
+            <NuxtLink
+              to="https://www.infura.io"
+              title="Infura blockchain APIs"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'Infura' } })"
+            >
+              Infura
+            </NuxtLink>.
+            There are also some experiments with
+            <NuxtLink
+              to="https://wagmi.sh/core"
+              title="Vanilla JS for Ethereum"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'wagmi/core' } })"
+            >
+              wagmi/core
+            </NuxtLink>
+            and the
+            <NuxtLink
+              to="https://www.alchemy.com/sdk"
+              title="SDK for the Alchemy web3 development platform"
+              target="_blank"
+              link
+              @click="useTrackEvent('click: Link (FAQ)', { props: { target: 'Alchemy SDK' } })"
+            >
+              Alchemy SDK
+            </NuxtLink>,
+            and we are open to experimenting with others in pursuit of the most DX-friendly web3 stack.
           </p>
         </div>
         <div class="faq-item">
@@ -475,7 +569,7 @@ const colorMode = useColorMode()
 }
 
 .faq-item {
-  @apply flex-col-center not-last:mb-12 px-4;
+  @apply flex-col-center not-last:mb-8 px-4;
 }
 .question {
   @apply m-0 text-2xl text-center leading-relaxed;
