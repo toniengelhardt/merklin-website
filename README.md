@@ -1,8 +1,8 @@
-# M Ξ R K L 🧙🏽‍♂️ N website
+# M Ξ R K L 🧙🏽‍♂️ N – Website
 
 __App:__ [app.merklin.xyz](https://app.merklin.xyz) ([repo](https://github.com/toniengelhardt/merklin))
 
-This is a basic landing page for the M Ξ R K L 🧙🏽‍♂️ N project.
+This is a basic landing page for the MΞRKLIN project.
 
 ## Stack
 
