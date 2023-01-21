@@ -1,4 +1,13 @@
 <script setup lang="ts">
+useHead({
+  title: 'Merklin — Open-source Ethereum wallet explorer',
+  meta: [{
+    hid: 'description',
+    name: 'description',
+    content: 'Merklin is an open-source web-only EVM explorer made with Vue, Nuxt, and Ethers. Explore transaction statistics, gas burn, etc. for any Ethereum wallet address.',
+  }],
+})
+
 const config = useRuntimeConfig()
 const colorMode = useColorMode()
 const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.value)
