@@ -22,24 +22,39 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
       <h1 mt-4 mb-2 text-5xl font-black tracking-widest>
         M<span text-dim>Ξ</span>RKLIN
       </h1>
-      <p m-0 text-2xl text-dim text-center font-bold>
-        Open-source web-only EVM wallet explorer
+      <p m-0 text-2xl text-dim text-center font-bold leading-tight>
+        Open-source web-only
+        <NuxtLink
+          to="https://ethereum.org"
+          title="Official Ethereum website"
+          target="_blank"
+          text-dim
+          @click="useTrackEvent('click: Link (home)', { props: { target: 'Ethereum' } })"
+        >
+          Ethereum
+        </NuxtLink>
+        wallet explorer
+      </p>
+      <p mt-2 md:mt-1 mb-0 text-dim text-center italic>
+        for Android, iOS/OSX, Windows, Linux, and the web
       </p>
       <div flex-center lt-md:flex-col w-full gap-4 mt-6>
         <NuxtLink
           :to="config.public.appUrl"
           title="Open Merklin app"
           btn-action btn-lg w-full md:w-50 font-bold
+          @click="useTrackEvent('click: Open App (hero)')"
         >
-          <Icon name="app" size="1.35rem" text-yellow-500 /><span ml-1.5>App</span>
+          <Icon name="app" size="1.35rem" text-yellow-400 /><span ml-1.5>Open App</span>
         </NuxtLink>
         <NuxtLink
           :to="config.public.repoUrl"
           target="_blank"
           title="Merklin GitHub repository"
           btn-action btn-lg w-full md:w-50 font-bold
+          @click="useTrackEvent('click: GitHub (hero)')"
         >
-          <Icon name="github" size="1.35rem" text-rose-500 /><span ml-1.5>Github</span>
+          <Icon name="github" size="1.35rem" text-purple-400 /><span ml-1.5>Contribute</span>
         </NuxtLink>
       </div>
       <!-- <div flex-col-center mt-12>
@@ -52,7 +67,10 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
         >
       </div> -->
     </div>
-    <div section flex-center>
+    <div section flex-col-center>
+      <p mt-0>
+        — Preview —
+      </p>
       <div flex rounded-1.5rem border-solid border-2 border-light p-1>
         <img :src="`/preview-${theme}_x1280.jpg`" alt="Merklin EVM wallet explorer preview" width="100%" height="auto" rounded-1.25rem>
       </div>
@@ -92,7 +110,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
       <h2 section-title>
         Supported Networks
       </h2>
-      <div section-content grid grid-cols-3 md:grid-cols-6 gap-4>
+      <div section-content grid grid-cols-2 md:grid-cols-6 gap-8>
         <div class="network">
           <Icon name="ethereum" size="2rem" />
           <div class="network-name">
@@ -100,10 +118,23 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               to="https://ethereum.org"
               title="Ethereum project website"
               target="_blank"
+              @click="useTrackEvent('click: Supported Network (home)', { props: { target: 'Ethereum' } })"
             >
               Ethereum
             </NuxtLink>
           </div>
+          <div class="network-layer">
+            L1
+          </div>
+          <NuxtLink
+            to="https://ethereum.org/en/developers/docs/evm"
+            title="What is the Ethereum Virtual Machine (EVM)?"
+            target="_blank"
+            class="network-info"
+            @click="useTrackEvent('click: Link (home)', { props: { target: 'EVM' } })"
+          >
+            EVM
+          </NuxtLink>
           <div class="network-status">
             Ready <Icon name="check" text-ok />
           </div>
@@ -115,10 +146,23 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               to="https://www.optimism.io"
               title="Optimism project website"
               target="_blank"
+              @click="useTrackEvent('click: Supported Network (home)', { props: { target: 'Optimism' } })"
             >
               Optimism
             </NuxtLink>
           </div>
+          <div class="network-layer">
+            L2
+          </div>
+          <NuxtLink
+            to="https://ethereum.org/en/developers/docs/scaling/optimistic-rollups"
+            title="What are Optimistic Rollups?"
+            target="_blank"
+            class="network-info"
+            @click="useTrackEvent('click: Link (home)', { props: { target: 'Optimistic Rollups' } })"
+          >
+            Optimistic Rollups
+          </NuxtLink>
           <div class="network-status">
             Soon <Icon name="construction" text-warn />
           </div>
@@ -130,10 +174,23 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               to="https://arbitrum.io"
               title="Arbitrum project website"
               target="_blank"
+              @click="useTrackEvent('click: Supported Network (home)', { props: { target: 'Arbitrum' } })"
             >
               Arbitrum
             </NuxtLink>
           </div>
+          <div class="network-layer">
+            L2
+          </div>
+          <NuxtLink
+            to="https://ethereum.org/en/developers/docs/scaling/optimistic-rollups"
+            title="What are Optimistic Rollups?"
+            target="_blank"
+            class="network-info"
+            @click="useTrackEvent('click: Link (home)', { props: { target: 'Optimistic Rollups' } })"
+          >
+            Optimistic Rollups
+          </NuxtLink>
           <div class="network-status">
             Soon <Icon name="construction" text-warn />
           </div>
@@ -145,10 +202,23 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               to="https://zksync.io"
               title="zkSync project website"
               target="_blank"
+              @click="useTrackEvent('click: Supported Network (home)', { props: { target: 'zkSync' } })"
             >
               zkSync
             </NuxtLink>
           </div>
+          <div class="network-layer">
+            L2
+          </div>
+          <NuxtLink
+            to="https://ethereum.org/en/developers/docs/scaling/zk-rollups"
+            title="What are ZK Rollups?"
+            target="_blank"
+            class="network-info"
+            @click="useTrackEvent('click: Link (home)', { props: { target: 'ZK Rollups' } })"
+          >
+            ZK Rollups
+          </NuxtLink>
           <div class="network-status">
             Soon <Icon name="construction" text-warn />
           </div>
@@ -160,10 +230,23 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               to="https://polygon.technology"
               title="Polygon project website"
               target="_blank"
+              @click="useTrackEvent('click: Supported Network (home)', { props: { target: 'Polygon' } })"
             >
               Polygon
             </NuxtLink>
           </div>
+          <div class="network-layer">
+            L2
+          </div>
+          <NuxtLink
+            to="https://ethereum.org/en/developers/docs/scaling/sidechains"
+            title="What are Sidechains?"
+            target="_blank"
+            class="network-info"
+            @click="useTrackEvent('click: Link (home)', { props: { target: 'Sidechain' } })"
+          >
+            Sidechain
+          </NuxtLink>
           <div class="network-status">
             Soon <Icon name="construction" text-warn />
           </div>
@@ -175,10 +258,23 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               to="https://www.gnosis.io"
               title="Gnosis project website"
               target="_blank"
+              @click="useTrackEvent('click: Supported Network (home)', { props: { target: 'Gnosis' } })"
             >
               Gnosis
             </NuxtLink>
           </div>
+          <div class="network-layer">
+            L2
+          </div>
+          <NuxtLink
+            to="https://ethereum.org/en/developers/docs/scaling/sidechains"
+            title="What are Sidechains?"
+            target="_blank"
+            class="network-info"
+            @click="useTrackEvent('click: Link (home)', { props: { target: 'Sidechain' } })"
+          >
+            Sidechain
+          </NuxtLink>
           <div class="network-status">
             Soon <Icon name="construction" text-warn />
           </div>
@@ -214,9 +310,27 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
             Why web-only?
           </p>
           <p class="answer">
-            Native apps are not suitable for web3 as they are subject to
+            Native apps are not suitable for
+            <NuxtLink
+              to="https://en.wikipedia.org/wiki/Web3"
+              title="Learn more about web3 on Wikipedia"
+              target="_blank"
+              link
+            >
+              web3
+            </NuxtLink>
+            as they are subject to
             App Store / Play Store gate-keeping and lock out a big part of the global population.
-            Instead, we go down the web-native route to deliver a great mobile experience.
+            Instead, we go down the web-native route (PWA,
+            <NuxtLink
+              to="https://itnext.io/lets-build-a-native-like-web-app-nwa-22a553fee338"
+              title="Let's build a Native(-like) Web App (NWA) on Medium"
+              target="_blank"
+              link
+            >
+              NWA
+            </NuxtLink>)
+            to deliver a great mobile experience.
           </p>
         </div>
         <div class="faq-item">
@@ -238,6 +352,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               title="Merklin issues on GitHub"
               target="_blank"
               link
+              @click="useTrackEvent('click: Link (faq)', { props: { target: 'GitHub issues' } })"
             >
               issues
             </NuxtLink> in the
@@ -246,24 +361,29 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
               title="Merklin GitHub repository"
               target="_blank"
               link
+              @click="useTrackEvent('click: Link (faq)', { props: { target: 'GitHub repo' } })"
             >
               GitHub repo
             </NuxtLink>. If you are interested in
             working on any of those, just drop a comment. You can also create a new issue
             if you have something specific in mind.
-            <NuxtLink
-              :to="`mailto:${config.public.feedbackEmail}`"
-              title="Merklin issues on GitHub"
-              target="_blank"
-              link
-            >
-              Feedback
-            </NuxtLink> is also always very valuable!
           </p>
         </div>
       </div>
     </div>
-    <div mt-15 flex-center lt-md:flex-col gap-4>
+    <div section>
+      <div section-content flex-center>
+        <NuxtLink
+          :to="`mailto:${config.public.feedbackEmail}`"
+          title="Send feedback"
+          btn-default btn-lg w-70
+          @click="useTrackEvent('click: Feedback (home)')"
+        >
+          <Icon name="email" size="1.5rem" mr-2 text-faint /> Send Feedback
+        </NuxtLink>
+      </div>
+    </div>
+    <div flex-center lt-md:flex-col gap-4>
       <div flex-center>
         Made with
         <NuxtLink
@@ -271,6 +391,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           target="_blank"
           title="Nuxt"
           ml-2
+          @click="useTrackEvent('click: Link (footer)', { props: { target: 'Nuxt' } })"
         >
           <Icon name="nuxt" />
         </NuxtLink>
@@ -279,6 +400,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           target="_blank"
           title="Vite"
           ml-2
+          @click="useTrackEvent('click: Link (footer)', { props: { target: 'Vite' } })"
         >
           <Icon name="vite" />
         </NuxtLink>
@@ -287,6 +409,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           target="_blank"
           title="UnoCSS"
           ml-2
+          @click="useTrackEvent('click: Link (footer)', { props: { target: 'UnoCSS' } })"
         >
           <Icon name="unocss" dark:invert />
         </NuxtLink>
@@ -295,6 +418,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           target="_blank"
           title="Headless UI"
           ml-2
+          @click="useTrackEvent('click: Link (footer)', { props: { target: 'HeadlessUI' } })"
         >
           <Icon name="headless" />
         </NuxtLink>
@@ -306,6 +430,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           target="_blank"
           title="Vercel"
           ml-2
+          @click="useTrackEvent('click: Link (footer)', { props: { target: 'Vercel' } })"
         >
           <Icon name="vercel" />
         </NuxtLink>
@@ -324,8 +449,14 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
 .network {
   @apply flex-col-center;
 }
+.network > .icon {
+  @apply mb-4;
+}
 .network-name {
-  @apply mt-2 text-lg;
+  @apply text-lg leading-tight;
+}
+.network-info {
+  @apply text-sm text-dim;
 }
 .network-status {
   @apply flex-center mt-2 px-1 py-0.5 bg-element text-xs text-dim rounded;
@@ -335,7 +466,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
 }
 
 .faq-item {
-  @apply flex-col-center not-last:mb-12;
+  @apply flex-col-center not-last:mb-12 px-4;
 }
 .question {
   @apply m-0 text-2xl text-center leading-relaxed;

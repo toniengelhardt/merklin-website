@@ -44,6 +44,7 @@ export default defineAppConfig({
       external: 'ph:arrow-square-out',
       insights: 'ph:magic-wand-bold',
       feedback: 'ph:megaphone-simple-bold',
+      email: 'ph:envelope-simple-bold',
       // Blockchain:
       wallet: 'ph:cardholder-bold',
       gas: 'ri:gas-station-line',

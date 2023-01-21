@@ -15,6 +15,7 @@ function onClick() {
       break
   }
   colorMode.preference = newTheme
+  useTrackEvent('click: Theme toggle (footer)')
 }
 </script>
 
@@ -26,8 +27,8 @@ function onClick() {
     @click="onClick()"
   >
     <ClientOnly>
-      <Icon :name="colorMode.preference" size="1.2rem" mr-2 h-5 w-5 text-dim aria-hidden="true" />
-      <span mr-1 lt-md:hidden>Switch theme</span>
+      <Icon :name="colorMode.preference" size="1.2rem" h-5 w-5 text-dim aria-hidden="true" />
+      <span ml-2 mr-1 lt-md:hidden>Switch theme</span>
     </ClientOnly>
   </div>
 </template>

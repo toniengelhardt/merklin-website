@@ -10,7 +10,7 @@ import {
 export default defineConfig({
   shortcuts: {
     'section': 'w-full py-12',
-    'section-title': 'mt-0 mb-15 text-4xl text-center',
+    'section-title': 'mt-0 mb-15 text-3xl md:text-4xl text-center',
     'flex-center': 'flex justify-center items-center',
     'flex-col-center': 'flex-center flex-col',
     'bg-base': 'bg-zinc-50 dark:bg-zinc-900',
