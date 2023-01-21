@@ -43,6 +43,6 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   plausible: {
-    domain: process.env.SITE_URL || '',
+    domain: process.env.PLAUSIBLE_DOMAIN || '',
   },
 })
