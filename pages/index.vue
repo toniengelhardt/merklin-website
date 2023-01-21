@@ -1,16 +1,15 @@
 <script setup lang="ts">
 useHead({
-  title: 'Merklin — Open-source Ethereum wallet explorer',
+  title: 'Merklin – Open-source Ethereum wallet explorer',
   meta: [{
     hid: 'description',
     name: 'description',
-    content: 'Merklin is an open-source web-only EVM explorer made with Vue, Nuxt, and Ethers. Explore transaction statistics, gas burn, etc. for any Ethereum wallet address.',
+    content: 'An open-source web-only EVM explorer made with Vue, Nuxt, and Ethers. Visualize wallet metrics like transaction frequency and gas burn for any Ethereum address.',
   }],
 })
 
 const config = useRuntimeConfig()
 const colorMode = useColorMode()
-const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.value)
 </script>
 
 <template>
@@ -26,7 +25,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
         Open-source web-only
         <NuxtLink
           to="https://ethereum.org"
-          title="Official Ethereum website"
+          title="Ethereum project website"
           target="_blank"
           text-dim
           @click="useTrackEvent('click: Link (home)', { props: { target: 'Ethereum' } })"
@@ -35,7 +34,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
         </NuxtLink>
         wallet explorer
       </p>
-      <p mt-2 md:mt-1 mb-0 text-dim text-center italic>
+      <p mt-2 md:mt-1 mb-0 lt-md:text-sm text-dim text-center italic>
         for Android, iOS/OSX, Windows, Linux, and the web
       </p>
       <div flex-center lt-md:flex-col w-full gap-4 mt-6>
@@ -45,7 +44,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           btn-action btn-lg w-full md:w-50 font-bold
           @click="useTrackEvent('click: Open App (hero)')"
         >
-          <Icon name="app" size="1.35rem" text-yellow-400 /><span ml-1.5>Open App</span>
+          <Icon name="app" size="1.5rem" text-yellow-400 /><span ml-2>Open App</span>
         </NuxtLink>
         <NuxtLink
           :to="config.public.repoUrl"
@@ -54,7 +53,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           btn-action btn-lg w-full md:w-50 font-bold
           @click="useTrackEvent('click: GitHub (hero)')"
         >
-          <Icon name="github" size="1.35rem" text-purple-400 /><span ml-1.5>Contribute</span>
+          <Icon name="github" size="1.5rem" text-purple-400 /><span ml-2>Contribute</span>
         </NuxtLink>
       </div>
       <!-- <div flex-col-center mt-12>
@@ -71,8 +70,10 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
       <p mt-0>
         — Preview —
       </p>
-      <div flex rounded-1.5rem border-solid border-2 border-light p-1>
-        <img :src="`/preview-${theme}_x1280.jpg`" alt="Merklin EVM wallet explorer preview" width="100%" height="auto" rounded-1.25rem>
+      <div class="preview-container" flex rounded-1.5rem border-solid border-4 border-base p-1>
+        <ClientOnly>
+          <img :src="`/preview-${colorMode.value}_x1280.jpg`" alt="Merklin EVM wallet explorer preview" rounded-1rem>
+        </ClientOnly>
       </div>
     </div>
     <!-- <div section>
@@ -390,7 +391,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           href="https://nuxt.com"
           target="_blank"
           title="Nuxt"
-          ml-2
+          flex-center ml-2
           @click="useTrackEvent('click: Link (footer)', { props: { target: 'Nuxt' } })"
         >
           <Icon name="nuxt" />
@@ -399,7 +400,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           href="https://vitejs.dev"
           target="_blank"
           title="Vite"
-          ml-2
+          flex-center ml-2
           @click="useTrackEvent('click: Link (footer)', { props: { target: 'Vite' } })"
         >
           <Icon name="vite" />
@@ -408,7 +409,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           href="https://uno.antfu.me"
           target="_blank"
           title="UnoCSS"
-          ml-2
+          flex-center ml-2
           @click="useTrackEvent('click: Link (footer)', { props: { target: 'UnoCSS' } })"
         >
           <Icon name="unocss" dark:invert />
@@ -417,19 +418,19 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
           href="https://headlessui.com"
           target="_blank"
           title="Headless UI"
-          ml-2
+          flex-center ml-2
           @click="useTrackEvent('click: Link (footer)', { props: { target: 'HeadlessUI' } })"
         >
           <Icon name="headless" />
         </NuxtLink>
       </div>
-      <div flex-center ml-2>
+      <div flex-center md:ml-2>
         Powered by
         <NuxtLink
           href="https://vercel.com"
           target="_blank"
           title="Vercel"
-          ml-2
+          flex-center ml-2
           @click="useTrackEvent('click: Link (footer)', { props: { target: 'Vercel' } })"
         >
           <Icon name="vercel" />
@@ -444,7 +445,15 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
 
 <style>
 .logo > img {
-  @apply w-32 h-32;
+  @apply w-28 h-28;
+  aspect-ratio: 1 / 1;
+}
+.preview-container {
+  @apply w-full;
+  aspect-ratio: 1280 / 800;
+}
+.preview-container > img {
+  @apply w-full h-auto;
 }
 .network {
   @apply flex-col-center;
@@ -453,7 +462,7 @@ const theme = $computed(() => colorMode.value === 'system' ? 'dark' : colorMode.
   @apply mb-4;
 }
 .network-name {
-  @apply text-lg leading-tight;
+  @apply text-lg font-bold leading-tight;
 }
 .network-info {
   @apply text-sm text-dim;
