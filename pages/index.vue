@@ -358,12 +358,12 @@ const colorMode = useColorMode()
           <p class="answer">
             So far the web3 dev space has been dominated almost exlusively by
             React and its ecosystem. This project is an attempt to change that
-            and add Vue to the web3 map as well.
+            and add Vue to the web3 stack as well.
           </p>
         </div>
         <div class="faq-item">
           <p class="question">
-            Which web3 libraries, RPCs and APIs are used?
+            Which web3 libraries, RPCs, and APIs are used?
           </p>
           <p class="answer">
             As of now, the app relies mostly on
