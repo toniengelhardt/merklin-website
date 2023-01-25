@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'Merklin – Open-source Ethereum wallet explorer',
+  title: 'MΞRKLIN – Open-source Ethereum wallet explorer',
   meta: [
     {
       hid: 'description',
@@ -22,7 +22,7 @@ const colorMode = useColorMode()
   <div w-full p-4>
     <div section flex-col-center>
       <div class="logo">
-        <img src="/icon.png" alt="Merklin Logo">
+        <img src="/icon.png" alt="MΞRKLIN Logo">
       </div>
       <h1 mt-4 mb-2 text-5xl font-black tracking-widest>
         M<span text-dim>Ξ</span>RKLIN
@@ -46,7 +46,7 @@ const colorMode = useColorMode()
       <div flex-center lt-md:flex-col w-full gap-4 mt-6>
         <NuxtLink
           :to="config.public.appUrl"
-          title="Open Merklin app"
+          title="Open MΞRKLIN app"
           btn-action btn-lg w-full md:w-50 font-bold
           @click="useTrackEvent('click: Open App (hero)')"
         >
@@ -55,7 +55,7 @@ const colorMode = useColorMode()
         <NuxtLink
           :to="config.public.repoUrl"
           target="_blank"
-          title="Merklin GitHub repository"
+          title="MΞRKLIN GitHub repository"
           btn-action btn-lg w-full md:w-50 font-bold
           @click="useTrackEvent('click: GitHub (hero)')"
         >
@@ -444,7 +444,7 @@ const colorMode = useColorMode()
             Take a look at
             <NuxtLink
               :to="`${config.public.repoUrl}/issues`"
-              title="Merklin issues on GitHub"
+              title="MΞRKLIN issues on GitHub"
               target="_blank"
               link
               @click="useTrackEvent('click: Link (faq)', { props: { target: 'GitHub issues' } })"
@@ -453,7 +453,7 @@ const colorMode = useColorMode()
             </NuxtLink> in the
             <NuxtLink
               :to="config.public.repoUrl"
-              title="Merklin GitHub repository"
+              title="MΞRKLIN GitHub repository"
               target="_blank"
               link
               @click="useTrackEvent('click: Link (faq)', { props: { target: 'GitHub repo' } })"
